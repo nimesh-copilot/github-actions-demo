@@ -27,12 +27,12 @@ jobs:
 
       - name: Tag the image
         run: |
-          ECR_URL=${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/django-app
+          ECR_URL=${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/djangoapp/backend
           docker tag django-app:latest $ECR_URL:latest
 
       - name: Push the image
         run: |
-          ECR_URL=${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/django-app
+          ECR_URL=${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/djangoapp/backend
           docker push $ECR_URL:latest
 
       - name: Update ECS Service
